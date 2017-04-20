@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "783304467720",
+    "firebase_url": "https://egon-trial.firebaseio.com",
+    "project_id": "egon-trial",
+    "storage_bucket": "egon-trial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:783304467720:android:651c8a212a7a0885",
+        "android_client_info": {
+          "package_name": "com.eg.yevgeniy.egontrial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "783304467720-qqlpdmib09kt6iobcrde8offgnrbjhno.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eg.yevgeniy.egontrial",
+            "certificate_hash": "665885a28efca3cf825d425d85f9046b2cdee9af"
+          }
+        },
+        {
+          "client_id": "783304467720-bco8stq3daqbkikeh6if5btngg6nob3g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTdDTxL7iUjOaJt4GQ7mbaX1rIYbsFPbk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "783304467720-bco8stq3daqbkikeh6if5btngg6nob3g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
