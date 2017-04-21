@@ -4,8 +4,24 @@
         "source": "/Users/yelena/AndroidStudioProjects/EGONTrial/subProject/slideDateTimePicker/src/main/res/layout/slide_date_time_picker.xml"
     },
     {
+        "merged": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/build/intermediates/res/merged/release/layout/slide_date_time_picker.xml",
+        "source": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/src/main/res/layout/slide_date_time_picker.xml"
+    },
+    {
         "merged": "/Users/yelena/AndroidStudioProjects/EGONTrial/subProject/slideDateTimePicker/build/intermediates/res/merged/release/layout/fragment_time.xml",
         "source": "/Users/yelena/AndroidStudioProjects/EGONTrial/subProject/slideDateTimePicker/src/main/res/layout/fragment_time.xml"
+    },
+    {
+        "merged": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/build/intermediates/res/merged/release/layout/fragment_date.xml",
+        "source": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/src/main/res/layout/fragment_date.xml"
+    },
+    {
+        "merged": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/build/intermediates/res/merged/release/layout/fragment_time.xml",
+        "source": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/src/main/res/layout/fragment_time.xml"
+    },
+    {
+        "merged": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/build/intermediates/res/merged/release/layout/custom_tab.xml",
+        "source": "/Users/StephanieD/Downloads/EGON/subProject/slideDateTimePicker/src/main/res/layout/custom_tab.xml"
     },
     {
         "merged": "/Users/yelena/AndroidStudioProjects/EGONTrial/subProject/slideDateTimePicker/build/intermediates/res/merged/release/layout/custom_tab.xml",

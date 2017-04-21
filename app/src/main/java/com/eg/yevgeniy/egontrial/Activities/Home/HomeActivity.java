@@ -1,5 +1,6 @@
 package com.eg.yevgeniy.egontrial.Activities.Home;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -18,10 +19,25 @@ import com.eg.yevgeniy.egontrial.Activities.E_Car.CarShare;
 import com.eg.yevgeniy.egontrial.Activities.Login.LoginActivity;
 import com.eg.yevgeniy.egontrial.R;
 
+import java.util.Locale;
+
+import static java.util.Locale.GERMANY;
+
 
 public class HomeActivity extends LoginActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
     int setting = 1;
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        Locale locale = GERMANY;
+        newConfig.locale = locale;
+        Locale.setDefault(locale);
+
+        getBaseContext().getResources().updateConfiguration(newConfig, getBaseContext().getResources().getDisplayMetrics());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
