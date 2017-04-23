@@ -1,6 +1,10 @@
 package com.eg.yevgeniy.egontrial.Activities.Home;
 
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -11,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.eg.yevgeniy.egontrial.Activities.Bill_Share.ShareElectric;
@@ -28,16 +33,16 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
 
     int setting = 1;
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        Locale locale = GERMANY;
-        newConfig.locale = locale;
-        Locale.setDefault(locale);
-
-        getBaseContext().getResources().updateConfiguration(newConfig, getBaseContext().getResources().getDisplayMetrics());
-    }
+//    @Override
+//    public void onConfigurationChanged(Configuration newConfig) {
+//        super.onConfigurationChanged(newConfig);
+//
+//        Locale locale = GERMANY;
+//        newConfig.locale = locale;
+//        Locale.setDefault(locale);
+//
+//        getBaseContext().getResources().updateConfiguration(newConfig, getBaseContext().getResources().getDisplayMetrics());
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +93,11 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
         finish();
     }
 
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
+
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -97,7 +107,6 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
                     .beginTransaction()
                     .replace(R.id.containerMain, new CarShare())
                     .commit();
-        } else if (id == R.id.nav_appliance) {
 
         } else if (id == R.id.nav_bill_share) {
             getSupportFragmentManager()
@@ -110,8 +119,6 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
                     .beginTransaction()
                     .replace(R.id.containerMain, new CustomerFragment())
                     .commit();
-
-        } else if (id == R.id.nav_share) {
 
         }
 

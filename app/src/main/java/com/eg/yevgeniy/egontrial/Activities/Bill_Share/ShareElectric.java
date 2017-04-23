@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.eg.yevgeniy.egontrial.Activities.Home.HomeActivity;
 import com.eg.yevgeniy.egontrial.R;
 
 /**
@@ -59,6 +60,8 @@ public class ShareElectric extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        ((HomeActivity) getActivity()).setActionBarTitle("Exchange");
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_share_electric, container, false);
     }

@@ -5,9 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/EGON.iml" filepath="$PROJECT_DIR$/EGON.iml" />
       <module fileurl="file://$PROJECT_DIR$/EGONTrial.iml" filepath="$PROJECT_DIR$/EGONTrial.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/newNew/newNew.iml" filepath="$PROJECT_DIR$/newNew/newNew.iml" />
-      <module fileurl="file://$PROJECT_DIR$/subProject/slideDateTimePicker/slideDateTimePicker.iml" filepath="$PROJECT_DIR$/subProject/slideDateTimePicker/slideDateTimePicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/subProject/slideDateTimePicker/slideDateTimePicker.iml" filepath="$PROJECT_DIR$/subProject/slideDateTimePicker/slideDateTimePicker.iml" />
     </modules>
   </component>

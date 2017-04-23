@@ -14,14 +14,14 @@
 
     <TextView
         android:id="@+id/cardView2"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="100dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
         android:gravity="fill_vertical|center_horizontal|center"
         android:text="TextView"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         card_view:layout_constraintRight_toLeftOf="@+id/guideline"
@@ -29,7 +29,7 @@
         tools:layout_conversion_absoluteHeight="16dp"
         tools:layout_conversion_absoluteWidth="58dp"
         tools:layout_conversion_absoluteX="0dp"
-        tools:layout_conversion_absoluteY="0dp"/>
+        tools:layout_conversion_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/cardView1"
@@ -40,7 +40,7 @@
         android:background="@android:color/transparent"
         android:gravity="center_vertical|center_horizontal|center"
         android:text="TextView"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
         android:textColorHighlight="@color/common_google_signin_btn_text_dark_disabled"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -49,16 +49,14 @@
         tools:layout_conversion_absoluteHeight="16dp"
         tools:layout_conversion_absoluteWidth="58dp"
         tools:layout_conversion_absoluteX="0dp"
-        tools:layout_conversion_absoluteY="16dp"/>
+        tools:layout_conversion_absoluteY="16dp" />
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/guideline"
         android:orientation="vertical"
-        card_view:layout_constraintGuide_percent="0.5"
-        tools:layout_editor_absoluteY="10dp"
-        tools:layout_editor_absoluteX="192dp"/>
+        card_view:layout_constraintGuide_percent="0.55" />
 
 
 </android.support.constraint.ConstraintLayout>
