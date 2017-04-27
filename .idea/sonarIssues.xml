@@ -13,12 +13,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/drawable/backgroundsplash.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/customer_card.xml">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout/nav_header_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/menu/activity_main_drawer.xml">
           <value>
             <set />
           </value>
@@ -73,6 +83,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/eg/yevgeniy/egontrial/Activities/Dashboard/MyAxisValueFormatter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/eg/yevgeniy/egontrial/Activities/Dashboard/MyCustomXAxis.java">
           <value>
             <set />
@@ -109,6 +124,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/eg/yevgeniy/egontrial/Activities/Models/Person.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/drawable/backgroundsplash.xml">
           <value>
             <set />
           </value>
@@ -219,6 +239,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/values/styles.xml">
           <value>
             <set />
           </value>

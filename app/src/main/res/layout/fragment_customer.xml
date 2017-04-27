@@ -34,7 +34,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="284dp"/>
 
-    <com.github.mikephil.charting.charts.LineChart
+    <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart1"
         android:layout_width="0dp"
         android:layout_height="0dp"
