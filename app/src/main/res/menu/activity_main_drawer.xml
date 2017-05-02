@@ -9,11 +9,44 @@
         <item
             android:id="@+id/nav_e_car"
             android:icon="@drawable/ic_menu_share"
-            android:title="E-Car" />
+            android:title="E-Car Reservations" />
+        <item
+            android:id="@+id/manage"
+            android:icon="@drawable/ic_attach_money_black_24dp"
+            android:title="Manage Energy" />
         <item
             android:id="@+id/nav_bill_share"
             android:icon="@drawable/ic_attach_money_black_24dp"
             android:title="Exchange" />
     </group>
+
+    <item android:title="Load Shifting">
+        <menu>
+            <item
+                android:id="@+id/heater"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Heater"/>
+            <item
+                android:id="@+id/e_car"
+                android:icon="@drawable/ic_menu_send"
+                android:title="E-Car"/>
+            <item
+                android:id="@+id/wash"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Washing Machine"/>
+            <item
+                android:id="@+id/oven"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Over"/>
+            <item
+                android:id="@+id/tv"
+                android:icon="@drawable/ic_menu_share"
+                android:title="TV"/>
+            <item
+                android:id="@+id/lights"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Lights"/>
+        </menu>
+    </item>
 
 </menu>

@@ -1,6 +1,7 @@
 package com.eg.yevgeniy.egontrial.Activities.E_Car;
 
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.RectF;
 import android.os.Bundle;
@@ -71,6 +72,9 @@ public class CarShare extends Fragment implements WeekView.EventClickListener, M
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        getActivity().setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         ((HomeActivity) getActivity()).setActionBarTitle("E-Car");
         View v = inflater.inflate(R.layout.fragment_car_share, container, false);

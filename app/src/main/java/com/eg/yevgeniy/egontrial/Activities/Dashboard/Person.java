@@ -1,5 +1,7 @@
 package com.eg.yevgeniy.egontrial.Activities.Dashboard;
 
+import java.util.Calendar;
+
 /**
  * Created by yelena on 4/10/17.
  */
@@ -9,29 +11,71 @@ package com.eg.yevgeniy.egontrial.Activities.Dashboard;
 
 public class Person {
 
-    String month;
-    String price;
+    String priceShare;
+    String priceGraz;
+    String kwhShare;
+    String kwhGraz;
+    String total_price;
+    String date;
+
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate(){
+        return date;
+    }
 
     public Person(){
     }
 
-    public Person(String month, String price) {
-        this.month = month;
-        this.price = price;
+    public Person(String priceShare, String priceGraz, String kwhShare, String kwhGraz, String total_price, String date) {
+        this.priceShare = priceShare;
+        this.date = date;
+        this.priceGraz = priceGraz;
+        this.kwhShare = kwhShare;
+        this.kwhGraz = kwhGraz;
+        this.total_price = total_price;
     }
 
-    public String getMonth() {
-        return month;
-    }
-    public String getPrice() {
-        return price;
+    public String getPriceShare() {
+        return priceShare;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setPriceShare(String priceShare) {
+        this.priceShare = priceShare;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public String getPriceGraz() {
+        return priceGraz;
+    }
+
+    public void setPriceGraz(String priceGraz) {
+        this.priceGraz = priceGraz;
+    }
+
+    public String getKwhShare() {
+        return kwhShare;
+    }
+
+    public void setKwhShare(String kwhShare) {
+        this.kwhShare = kwhShare;
+    }
+
+    public String getKwhGraz() {
+        return kwhGraz;
+    }
+
+    public void setKwhGraz(String kwhGraz) {
+        this.kwhGraz = kwhGraz;
+    }
+
+    public String getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(String total_price) {
+        this.total_price = total_price;
     }
 }

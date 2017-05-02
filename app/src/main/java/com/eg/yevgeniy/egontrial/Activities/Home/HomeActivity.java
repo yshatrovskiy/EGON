@@ -1,48 +1,35 @@
 package com.eg.yevgeniy.egontrial.Activities.Home;
 
-import android.content.res.Configuration;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.ListView;
 
-import com.eg.yevgeniy.egontrial.Activities.Bill_Share.ShareElectric;
+
+import com.eg.yevgeniy.egontrial.Activities.Bill_Share.GraphHolderFragment;
 import com.eg.yevgeniy.egontrial.Activities.Dashboard.CustomerFragment;
 import com.eg.yevgeniy.egontrial.Activities.E_Car.CarShare;
 import com.eg.yevgeniy.egontrial.Activities.Login.LoginActivity;
+import com.eg.yevgeniy.egontrial.Activities.ManageEnergy.ManageFragment;
+import com.eg.yevgeniy.egontrial.Activities.Moniter.LightsFragment;
+import com.eg.yevgeniy.egontrial.Activities.Moniter.MainMoniterFrag;
+import com.eg.yevgeniy.egontrial.Activities.Moniter.OvenFragment;
+import com.eg.yevgeniy.egontrial.Activities.Moniter.TVFragment;
+import com.eg.yevgeniy.egontrial.Activities.Moniter.VehicleFragment;
+import com.eg.yevgeniy.egontrial.Activities.Moniter.WasherFragment;
 import com.eg.yevgeniy.egontrial.R;
-
-import java.util.Locale;
-
-import static java.util.Locale.GERMANY;
-
 
 public class HomeActivity extends LoginActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
-    int setting = 1;
+    MainMoniterFrag mainMoniterFrag;
+    public DrawerLayout drawerLayout;
 
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//
-//        Locale locale = GERMANY;
-//        newConfig.locale = locale;
-//        Locale.setDefault(locale);
-//
-//        getBaseContext().getResources().updateConfiguration(newConfig, getBaseContext().getResources().getDisplayMetrics());
-//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +54,7 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
 
         CustomerFragment customerFragment = new CustomerFragment();
         getSupportFragmentManager().findFragmentById(R.id.containerMain);
+
 
         getSupportFragmentManager().beginTransaction().add(R.id.containerMain, customerFragment).commit();
 
@@ -108,23 +96,75 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
                     .replace(R.id.containerMain, new CarShare())
                     .commit();
 
-        } else if (id == R.id.nav_bill_share) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.containerMain, new ShareElectric())
-                    .commit();
-
-        } else if (id == R.id.nav_dash) {
+        }else if (id == R.id.nav_dash) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.containerMain, new CustomerFragment())
                     .commit();
 
+        }else if (id == R.id.nav_bill_share) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new GraphHolderFragment())
+                    .commit();
+
+        }else if (id == R.id.manage) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new ManageFragment())
+                    .commit();
+
+
+        } else if (id == R.id.heater) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new MainMoniterFrag())
+                    .commit();
+
+        } else if (id == R.id.e_car) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new VehicleFragment())
+                    .commit();
+        }
+        else if (id == R.id.wash) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new WasherFragment())
+                    .commit();
+        }
+        else if (id == R.id.oven) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new OvenFragment())
+                    .commit();
+        }
+        else if (id == R.id.tv) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new TVFragment())
+                    .commit();
+        }
+        else if (id == R.id.lights) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new LightsFragment())
+                    .commit();
+
+
         }
 
-
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void closeDrawer(){
+        drawerLayout.closeDrawers();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ;
     }
 }

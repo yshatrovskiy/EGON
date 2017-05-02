@@ -5,9 +5,31 @@
              tools:context="com.eg.yevgeniy.egontrial.Activities.Bill_Share.ShareElectric">
 
     <!-- TODO: Update blank fragment layout -->
+
+
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:elevation="24dp"
+        android:paddingTop="15dp"
+        android:text="Generated Yearly (kWh)"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"/>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/chartMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_gravity="top"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/white"
+        android:paddingRight="0dp"/>
 
 </FrameLayout>

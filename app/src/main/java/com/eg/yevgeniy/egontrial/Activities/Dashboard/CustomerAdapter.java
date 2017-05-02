@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,61 +27,22 @@ import java.util.Map;
 
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerViewHolder> {
 
-    private Context mContext;
-    private DatabaseReference databaseReference;
-    private Map<String, Person> peoples = new HashMap<>();
+
     private List<Person> peopleList = new ArrayList<>();
 
-    public CustomerAdapter(DatabaseReference postRef){
 
-
-        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        databaseReference = postRef.child(uid).child("Bills");
-
-        peoples.put("Jan", new Person("One A", "Two B"));
-        peoples.put("Feb", new Person("Three A", "Four B"));
-        peoples.put("Mar", new Person("Five A", "Six B"));
-
-        //databaseReference = FirebaseDatabase.getInstance().getReference().child("Bills");
-        //databaseReference.setValue("test");
-        //databaseReference.setValue(peoples);
-
-
-        ChildEventListener childEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Person person = dataSnapshot.getValue(Person.class);
-                peopleList.add(person);
-                notifyItemInserted(peopleList.size());
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                Person person = dataSnapshot.getValue(Person.class);
-                peopleList.add(person);
-                notifyItemInserted(peopleList.size());
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                Person person = dataSnapshot.getValue(Person.class);
-                peopleList.add(person);
-                notifyItemInserted(peopleList.size()+1);
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        databaseReference.addChildEventListener(childEventListener);
+    public CustomerAdapter() {
+        peopleList.add(new Person("15,5€", "31,5€", "31 kWh", "16€", "15kWh", "May"));
+        peopleList.add(new Person("A", "A", "A", "A", "A", "Apr"));
+        peopleList.add(new Person("E", "E", "E", "E", "E", "Mar"));
+        peopleList.add(new Person("A", "B", "C", "D", "E", "May"));
+        peopleList.add(new Person("A", "A", "A", "A", "A", "Apr"));
+        peopleList.add(new Person("E", "E", "E", "E", "E", "Mar"));
+        peopleList.add(new Person("A", "B", "C", "D", "E", "May"));
+        peopleList.add(new Person("A", "A", "A", "A", "A", "Apr"));
+        peopleList.add(new Person("E", "E", "E", "E", "E", "Mar"));
     }
+
 
 
     @Override
@@ -93,8 +55,12 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerViewHolder> {
     @Override
     public void onBindViewHolder(CustomerViewHolder holder, int position) {
         Person person = peopleList.get(position);
-        holder.textView.setText(person.getMonth());
-        holder.textView2.setText(person.getPrice());
+        holder.textView.setText(person.getKwhGraz());
+        holder.textView2.setText(person.getKwhShare());
+        holder.textView3.setText(person.getPriceGraz());
+        holder.textView4.setText(person.getPriceShare());
+        holder.textView5.setText(person.getTotal_price());
+        holder.dateView.setText(person.getDate());
 
     }
 
@@ -102,4 +68,5 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerViewHolder> {
     public int getItemCount() {
         return peopleList.size();
     }
+
 }

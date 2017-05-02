@@ -24,6 +24,8 @@
             </intent-filter>
         </activity>
         <activity
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:name=".Activities.Home.HomeActivity"
             android:label="@string/title_activity_chat"
             android:theme="@style/AppTheme.NoActionBar" />

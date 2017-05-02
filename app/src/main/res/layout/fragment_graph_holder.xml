@@ -1,0 +1,59 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context="com.eg.yevgeniy.egontrial.Activities.Bill_Share.GraphHolderFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rectanlge"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/graphMain"
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:layout_marginBottom="0dp"
+            android:background="@android:color/transparent"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingRight="0dp">
+
+            <Button
+                android:id="@+id/day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rectangle_dark_blue"
+                android:text="Day"/>
+
+            <Button
+                android:id="@+id/month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/rectangle_dark_blue"
+                android:text="Month"/>
+
+            <Button
+                android:id="@+id/year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_dark_blue"
+                android:text="Year"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
