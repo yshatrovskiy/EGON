@@ -22,7 +22,7 @@
             android:layout_weight="1"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical"
@@ -35,7 +35,7 @@
                 android:layout_gravity="top|right"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/rectangle_dark_blue"
-                android:text="Day"/>
+                android:text="Day" />
 
             <Button
                 android:id="@+id/month"
@@ -43,14 +43,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/rectangle_dark_blue"
-                android:text="Month"/>
+                android:text="Month" />
 
             <Button
                 android:id="@+id/year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rectangle_dark_blue"
-                android:text="Year"/>
+                android:text="Year" />
 
         </LinearLayout>
 
