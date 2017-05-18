@@ -2,7 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context="com.eg.yevgeniy.egontrial.Activities.Bill_Share.DayShare">
+             tools:context="com.eg.yevgeniy.egontrial.Activities.Energy_Generation.DayShare">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -12,9 +12,9 @@
         android:layout_gravity="top|center_horizontal"
         android:elevation="24dp"
         android:paddingTop="15dp"
-        android:text="Generated Daily (kWh)"
-        android:textColor="@color/colorAccent"
-        android:textStyle="bold"/>
+        android:text="Daily (kWh)"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chartMain"

@@ -1,69 +1,99 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:app="http://schemas.android.com/apk/res-auto"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/colorAccent"
-             tools:context="com.eg.yevgeniy.egontrial.Activities.Moniter.MainMoniterFrag">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lightbw"
+    tools:context="com.eg.yevgeniy.egontrial.Activities.Moniter.MainMoniterFrag">
 
     <!-- TODO: Update blank fragment layout -->
 
-
-    <!--<com.cardiomood.android.controls.gauge.SpeedometerGauge-->
-    <!--android:id="@+id/speedometer"-->
-    <!--android:layout_width="175dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="bottom|center"-->
-    <!--android:padding="8dp"/>-->
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/greenEnd"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Status"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/percenttxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
+        android:layout_marginTop="30dp"
         android:paddingTop="10dp"
-        android:text="45%"
+        android:text="45 kWh"
         android:textColor="@android:color/black"
-        android:textSize="35sp"
-        android:textStyle="italic"/>
+        android:textSize="24sp"
+        android:textStyle="italic" />
 
-    <com.cardiomood.android.controls.gauge.BatteryIndicatorGauge
-        android:id="@+id/batteryindicator"
-        android:layout_width="250dp"
-        android:layout_height="200dp"
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/gauge3"
+        android:layout_width="130dp"
+        android:layout_height="135dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_gravity="top|center"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="0dp"
-        android:padding="8dp"
-        android:paddingTop="0dp"
-        android:scaleX=".4"
-        android:scaleY=".4"/>
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        app:gaugeDividerColor="#b6b6b6"
+        app:gaugeDividerDrawFirst="false"
+        app:gaugeDividerDrawLast="true"
+        app:gaugeDividerSize="1"
+        app:gaugeDividerStep="10"
+        app:gaugeEndValue="100"
+        app:gaugePointEndColor="@color/colorPrimary"
+        app:gaugePointStartColor="@color/colorAccent"
+        app:gaugeStartAngle="180"
+        app:gaugeStartValue="0"
+        app:gaugeStrokeCap="BUTT"
+        app:gaugeStrokeColor="#ffffff"
+        app:gaugeStrokeWidth="10dp"
+        app:gaugeSweepAngle="180" />
+
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/off"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_weight="0"
-        android:background="@android:color/holo_red_dark"
+        android:background="@drawable/rectangle_dark_blue"
         android:text="OFF"
         android:textColor="@android:color/white"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/auto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:layout_weight="0"
-        android:background="@android:color/holo_green_dark"
+        android:background="@drawable/rectangle_dark_blue"
         android:text="AUTO"
         android:textColor="@android:color/white"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,14 +113,13 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:elevation="0dp"
-            android:paddingBottom="0dp"
-            />
+            android:paddingBottom="0dp" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="240dp"
-        android:layout_height="100dp"
+        android:layout_width="260dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="325dp"
         android:layout_weight="1"
@@ -112,8 +141,9 @@
                 android:background="@drawable/back"
                 android:gravity="center"
                 android:text="Avg Daily Consumption"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -125,8 +155,9 @@
                 android:background="@drawable/back"
                 android:gravity="center"
                 android:text="Peak Usage"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -144,9 +175,10 @@
                 android:layout_weight="1"
                 android:background="@drawable/back"
                 android:gravity="center"
-                android:text="76 kWh"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:text="4 kWh"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -158,8 +190,9 @@
                 android:background="@drawable/back"
                 android:gravity="center"
                 android:text="15:05"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"/>
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

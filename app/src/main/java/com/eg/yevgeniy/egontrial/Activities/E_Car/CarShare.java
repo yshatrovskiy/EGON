@@ -87,7 +87,7 @@ public class CarShare extends Fragment implements WeekView.EventClickListener, M
         mWeekView.setEmptyViewLongPressListener(this);
         mWeekView.setEmptyViewClickListener(this);
         setupDateTimeInterpreter(false);
-        mWeekView.setNumberOfVisibleDays(1);
+        mWeekView.setNumberOfVisibleDays(3);
 
         return v;
     }
@@ -167,7 +167,7 @@ public class CarShare extends Fragment implements WeekView.EventClickListener, M
 
     public void createNewEvent(){
 
-        WeekViewEvent event = new WeekViewEvent(1, "Y","Here", startTime, endTime);
+        WeekViewEvent event = new WeekViewEvent(1, "Ines Korajman","Unit 4A", startTime, endTime);
         event.setColor(Color.parseColor("#CC03324a"));
         events.add(event);
         mWeekView.notifyDatasetChanged();

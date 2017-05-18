@@ -32,15 +32,11 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerViewHolder> {
 
 
     public CustomerAdapter() {
-        peopleList.add(new Person("15,5€", "31,5€", "31 kWh", "16€", "15kWh", "May"));
-        peopleList.add(new Person("A", "A", "A", "A", "A", "Apr"));
-        peopleList.add(new Person("E", "E", "E", "E", "E", "Mar"));
-        peopleList.add(new Person("A", "B", "C", "D", "E", "May"));
-        peopleList.add(new Person("A", "A", "A", "A", "A", "Apr"));
-        peopleList.add(new Person("E", "E", "E", "E", "E", "Mar"));
-        peopleList.add(new Person("A", "B", "C", "D", "E", "May"));
-        peopleList.add(new Person("A", "A", "A", "A", "A", "Apr"));
-        peopleList.add(new Person("E", "E", "E", "E", "E", "Mar"));
+        peopleList.add(new Person("74,8€", "94,03€", "106 kWh", "19,16€", "356 kWh", "May"));
+        peopleList.add(new Person("75,19€", "94,44€", "107 kWh", "19,25€", "358 kWh", "Apr"));
+        peopleList.add(new Person("83,11€", "104,39€", "118 kWh", "21,27€", "395 kWh", "Mar"));
+        peopleList.add(new Person("77,61€", "97,48€", "110 kWh", "19.87€", "369 kWh", "Feb"));
+        peopleList.add(new Person("90,06€", "113,12€", "128,11 kWh", "23,05€", "428kWh", "Jan"));
     }
 
 

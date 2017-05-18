@@ -24,9 +24,20 @@ public DayAxisValueFormatter(BarLineChartBase<?> chart) {
 
     @Override
     public String getFormattedValue(float value, AxisBase axis) {
+    String yearName;
+    if(value < 20){
+        yearName = "/17";
+    }else if(value > 20 && value < 30){
+        yearName = "/05";
+    }else if(value == 41){
+        yearName = "2016";
+        return yearName;
+    }else{
+        yearName = "2017";
+        return yearName;
+        }
 
     int days = (int) value;
-    String yearName = "/17";
     return days + "" + yearName;
 }
 

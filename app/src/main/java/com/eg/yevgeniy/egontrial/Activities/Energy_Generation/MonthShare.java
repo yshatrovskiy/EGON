@@ -1,4 +1,4 @@
-package com.eg.yevgeniy.egontrial.Activities.Bill_Share;
+package com.eg.yevgeniy.egontrial.Activities.Energy_Generation;
 
 
 import android.graphics.Color;
@@ -19,16 +19,15 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DayShare#newInstance} factory method to
+ * Use the {@link MonthShare#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DayShare extends Fragment {
+public class MonthShare extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,7 +40,7 @@ public class DayShare extends Fragment {
     private BarChart mChart;
 
 
-    public DayShare() {
+    public MonthShare() {
         // Required empty public constructor
     }
 
@@ -51,11 +50,11 @@ public class DayShare extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DayShare.
+     * @return A new instance of fragment MonthShare.
      */
     // TODO: Rename and change types and number of parameters
-    public static DayShare newInstance(String param1, String param2) {
-        DayShare fragment = new DayShare();
+    public static MonthShare newInstance(String param1, String param2) {
+        MonthShare fragment = new MonthShare();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -75,10 +74,8 @@ public class DayShare extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.fragment_day_share, container, false);
-
+        View v = inflater.inflate(R.layout.fragment_month_share, container, false);
         mChart = (BarChart)v.findViewById(R.id.chartMain);
         mChart.getDescription().setEnabled(false);
 
@@ -123,14 +120,36 @@ public class DayShare extends Fragment {
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
 
-        for (int i = 0; i < 10; i++) {
-            int mult = 10;
-            int val1 = (int) (Math.random() * mult) + mult / 3;
-            int val2 = (int) (Math.random() * mult) + mult / 3;
+//        for (int i = 6; i <= 12; i++) {
+//            int mult = 10;
+//            int val1 = (int) (Math.random() * mult) + mult / 3;
+//            int val2 = (int) (Math.random() * mult) + mult / 3;
+//
+//            yVals1.add(new BarEntry(i, new float[]{val1, val2}));
+//        }
 
-            yVals1.add(new BarEntry(i, new float[]{val1, val2},
-                    getResources().getDrawable(R.drawable.ic_drawer)));
-        }
+        yVals1.add(new BarEntry(1, new float[]{484,71}));
+        yVals1.add(new BarEntry(2, new float[]{393,86}));
+        yVals1.add(new BarEntry(3, new float[]{400,114}));
+        yVals1.add(new BarEntry(4, new float[]{333,131}));
+        yVals1.add(new BarEntry(5, new float[]{324,139}));
+        yVals1.add(new BarEntry(6, new float[]{284,130}));
+        yVals1.add(new BarEntry(7, new float[]{298,132}));
+        yVals1.add(new BarEntry(8, new float[]{313,124}));
+        yVals1.add(new BarEntry(9, new float[]{329,96}));
+        yVals1.add(new BarEntry(10, new float[]{392,92}));
+        yVals1.add(new BarEntry(11, new float[]{415,60}));
+        yVals1.add(new BarEntry(12, new float[]{482,60}));
+
+
+//        for (int i = 1; i <= 5; i++) {
+//            int mult = 10;
+//            int val1 = (int) (Math.random() * mult) + mult / 3;
+//            int val2 = (int) (Math.random() * mult) + mult / 3;
+//
+//            yVals1.add(new BarEntry(i, new float[]{val1, val2},
+//                    getResources().getDrawable(R.drawable.ic_drawer)));
+//        }
 
 
 
@@ -145,10 +164,10 @@ public class DayShare extends Fragment {
             mChart.getData().notifyDataChanged();
             mChart.notifyDataSetChanged();
         } else {
-            set1 = new BarDataSet(yVals1, "Daily Usage");
+            set1 = new BarDataSet(yVals1, "");
             set1.setDrawIcons(false);
             set1.setColors(getColors());
-            set1.setStackLabels(new String[]{"Energie Graz", "PV"});
+            set1.setStackLabels(new String[]{"Purchased", "Generated & Consumed"});
 
             ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
             dataSets.add(set1);
@@ -166,9 +185,8 @@ public class DayShare extends Fragment {
         return v;
     }
 
-
     private int[] getColors() {
-        int[] colors = {Color.parseColor("#5fbc5a"), Color.parseColor("#f7eb3e")};
+        int[] colors = {Color.parseColor("#5fbc5a"), Color.parseColor("#03324a")};
         for (int i = 0; i < colors.length; i++) {
             colors[i] = colors[i];
         }

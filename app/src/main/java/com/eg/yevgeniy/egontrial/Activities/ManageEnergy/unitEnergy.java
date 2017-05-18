@@ -6,21 +6,17 @@ package com.eg.yevgeniy.egontrial.Activities.ManageEnergy;
 
 public class unitEnergy {
 
-    int aptNumber;
+    String aptNumber;
     int energyAmount;
     String energyDisplay;
 
-    public unitEnergy(int aptNumber, int energyAmount) {
+    public unitEnergy(String aptNumber, int energyAmount) {
         this.aptNumber = aptNumber;
         this.energyAmount = energyAmount;
     }
 
     public String getAptNumber() {
-        return aptNumber + "";
-    }
-
-    public void setAptNumber(int aptNumber) {
-        this.aptNumber = aptNumber;
+        return "Unit " + aptNumber;
     }
 
     public int getEnergyAmount() {
@@ -32,7 +28,7 @@ public class unitEnergy {
     }
 
     public String getEnergyDisplay() {
-        energyDisplay = energyAmount + " €";
+        energyDisplay = energyAmount + " kWh";
         return energyDisplay;
     }
 }

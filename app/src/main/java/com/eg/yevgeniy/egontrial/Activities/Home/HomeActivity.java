@@ -3,7 +3,6 @@ package com.eg.yevgeniy.egontrial.Activities.Home;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,11 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-import com.eg.yevgeniy.egontrial.Activities.Bill_Share.GraphHolderFragment;
+import com.eg.yevgeniy.egontrial.Activities.Energy_Generation.containerFragment;
 import com.eg.yevgeniy.egontrial.Activities.Dashboard.CustomerFragment;
 import com.eg.yevgeniy.egontrial.Activities.E_Car.CarShare;
 import com.eg.yevgeniy.egontrial.Activities.Login.LoginActivity;
-import com.eg.yevgeniy.egontrial.Activities.ManageEnergy.ManageFragment;
+import com.eg.yevgeniy.egontrial.Activities.ManageEnergy.AptAdapter;
+import com.eg.yevgeniy.egontrial.Activities.ManageEnergy.BuyFragment;
+import com.eg.yevgeniy.egontrial.Activities.ManageEnergy.SellFragment;
 import com.eg.yevgeniy.egontrial.Activities.Moniter.LightsFragment;
 import com.eg.yevgeniy.egontrial.Activities.Moniter.MainMoniterFrag;
 import com.eg.yevgeniy.egontrial.Activities.Moniter.OvenFragment;
@@ -30,6 +31,14 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
     MainMoniterFrag mainMoniterFrag;
     public DrawerLayout drawerLayout;
 
+    public AptAdapter adapter;
+    public double credit = 20;
+    public int energy = 20;
+    public static double pending;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,7 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        adapter = new AptAdapter();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -75,6 +85,10 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
 
     }
 
+    public AptAdapter getAdapter(){
+        return adapter;
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -83,6 +97,30 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
 
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
+    }
+
+    public double getCredit(){
+        return credit;
+    }
+
+    public void setPending(double pending1) {
+        pending = pending1;
+    }
+
+    public void setCredit(double cred){
+        credit = cred;
+    }
+
+    public void setEnergy(int energ){
+        energy = energ;
+    }
+
+    public double getPending() {
+        return pending;
+    }
+
+    public int getEnergy(){
+        return energy;
     }
 
 
@@ -105,15 +143,8 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
         }else if (id == R.id.nav_bill_share) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.containerMain, new GraphHolderFragment())
+                    .replace(R.id.containerMain, new containerFragment())
                     .commit();
-
-        }else if (id == R.id.manage) {
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.containerMain, new ManageFragment())
-                    .commit();
-
 
         } else if (id == R.id.heater) {
             getSupportFragmentManager()
@@ -150,8 +181,18 @@ public class HomeActivity extends LoginActivity implements NavigationView.OnNavi
                     .beginTransaction()
                     .replace(R.id.containerMain, new LightsFragment())
                     .commit();
-
-
+        }
+        else if (id == R.id.buy) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new BuyFragment())
+                    .commit();
+        }
+        else if (id == R.id.sell) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.containerMain, new SellFragment())
+                    .commit();
         }
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

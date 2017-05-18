@@ -1,0 +1,202 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectanlge"
+    tools:context="com.eg.yevgeniy.egontrial.Activities.Energy_Generation.EnergyBreakDownFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:id="@+id/percenttxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:text="45 kWh"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:textStyle="italic" />
+
+    <pl.pawelkleczkowski.customgauge.CustomGauge
+        android:id="@+id/gauge3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        custom:gaugeDividerColor="#b6b6b6"
+        custom:gaugeDividerDrawFirst="false"
+        custom:gaugeDividerDrawLast="true"
+        custom:gaugeDividerSize="1"
+        custom:gaugeDividerStep="20"
+        custom:gaugeEndValue="360"
+        custom:gaugePointEndColor="#3BB39D"
+        custom:gaugePointStartColor="#3BB39D"
+        custom:gaugeStartAngle="0"
+        custom:gaugeStartValue="0"
+        custom:gaugeStrokeCap="BUTT"
+        custom:gaugeStrokeColor="#ffffff"
+        custom:gaugeStrokeWidth="10dp"
+        custom:gaugeSweepAngle="360" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:rotation="270"
+        custom:srcCompat="@drawable/chargebattery" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.github.lzyzsd.circleprogress.ArcProgress
+                    android:id="@+id/arc_progress2"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center_vertical|center"
+                    android:background="@android:color/transparent"
+                    custom:arc_bottom_text="MEMORY"
+                    custom:arc_progress="55" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.github.lzyzsd.circleprogress.ArcProgress
+                    android:id="@+id/arc_progress"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    custom:arc_bottom_text="MEMORY"
+                    custom:arc_progress="55" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:rotation="15"
+                    android:scaleX=".9"
+                    android:scaleY=".9"
+                    custom:srcCompat="@drawable/largeempty" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:rotation="165"
+                    android:scaleX=".9"
+                    android:scaleY=".9"
+                    custom:srcCompat="@drawable/largefull" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                android:scaleX=".9"
+                android:scaleY=".9"
+                custom:srcCompat="@drawable/largefull" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.github.lzyzsd.circleprogress.ArcProgress
+                android:id="@+id/arcProgress3"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@android:color/transparent"
+                custom:arc_bottom_text="IN USE"
+                custom:arc_progress="55" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

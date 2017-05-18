@@ -21,10 +21,10 @@ public class AptAdapter extends RecyclerView.Adapter<AptViewHolder> {
 
 
     public AptAdapter(){
-        unitList.add(new unitEnergy(7, 5));
-        unitList.add(new unitEnergy(15, 7));
-        unitList.add(new unitEnergy(7, 5));
-        unitList.add(new unitEnergy(15, 7));
+        unitList.add(new unitEnergy("12B", 5));
+        unitList.add(new unitEnergy("13A", 7));
+        unitList.add(new unitEnergy("16C", 5));
+        unitList.add(new unitEnergy("2A", 7));
     }
 
     @Override
@@ -39,7 +39,7 @@ public class AptAdapter extends RecyclerView.Adapter<AptViewHolder> {
     public void onBindViewHolder(AptViewHolder holder, int position) {
 
         unitEnergy energy = unitList.get(position);
-        holder.textView.setText(energy.getAptNumber());
+        holder.textView2.setText(energy.getAptNumber());
         holder.textView.setText(energy.getEnergyDisplay());
 
     }
@@ -82,7 +82,7 @@ public class AptAdapter extends RecyclerView.Adapter<AptViewHolder> {
 
     }
 
-    public void addUnit(int x, int y){
+    public void addUnit(String x, int y){
         unitList.add(new unitEnergy(x, y));
     }
 

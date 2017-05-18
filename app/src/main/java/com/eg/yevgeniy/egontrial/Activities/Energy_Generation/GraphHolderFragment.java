@@ -1,11 +1,10 @@
-package com.eg.yevgeniy.egontrial.Activities.Bill_Share;
+package com.eg.yevgeniy.egontrial.Activities.Energy_Generation;
 
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,28 +71,30 @@ public class GraphHolderFragment extends Fragment {
 
         ((HomeActivity)getActivity()).closeDrawer();
 
+
+
         getActivity().setRequestedOrientation(
                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         getActivity().setRequestedOrientation(
                 ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-        ((HomeActivity) getActivity()).setActionBarTitle("Exchange");
+        ((HomeActivity) getActivity()).setActionBarTitle("Energy Consumption vs. Production");
 
         View v = inflater.inflate(R.layout.fragment_graph_holder, container, false);
 
-        Button day = (Button)v.findViewById(R.id.day);
+        //Button day = (Button)v.findViewById(R.id.day);
         Button month = (Button)v.findViewById(R.id.month);
         Button year = (Button)v.findViewById(R.id.year);
 
-        day.setOnClickListener(here);
+        //day.setOnClickListener(here);
         month.setOnClickListener(here);
         year.setOnClickListener(here);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
         fragmentManager.beginTransaction()
-                .add(R.id.graphMain, new DayShare())
+                .add(R.id.graphMain, new MonthShare())
                 .addToBackStack(null)
                 .commit();
 
@@ -110,9 +111,9 @@ public class GraphHolderFragment extends Fragment {
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
 
-            if(v.getId() == R.id.day){
+            if(v.getId() == R.id.month){
                 fragmentManager.beginTransaction()
-                        .replace(R.id.graphMain, new DayShare())
+                        .replace(R.id.graphMain, new MonthShare())
                         .addToBackStack(null)
                         .commit();
             }else if(v.getId() == R.id.month){

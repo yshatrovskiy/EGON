@@ -1,9 +1,10 @@
 package com.eg.yevgeniy.egontrial.Activities.ManageEnergy;
 
 
+import android.app.Fragment;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.annotation.StringDef;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
@@ -13,18 +14,16 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.app.Activity.*;
 
-import com.eg.yevgeniy.egontrial.Activities.Dashboard.CustomerAdapter;
 import com.eg.yevgeniy.egontrial.Activities.Home.HomeActivity;
 import com.eg.yevgeniy.egontrial.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ManageFragment#newInstance} factory method to
+ * Use the {@link SellFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ManageFragment extends android.support.v4.app.Fragment {
+public class SellFragment extends android.support.v4.app.Fragment {
 
 
 
@@ -41,12 +40,8 @@ public class ManageFragment extends android.support.v4.app.Fragment {
     }
 
     int available = 0;
-    double credit = 0;
     String myUnit = "22B";
-
     AptAdapter adapter;
-
-    int energy = 0;
 
     TextView tViewTotal;
     TextView tViewCounter;
@@ -54,44 +49,45 @@ public class ManageFragment extends android.support.v4.app.Fragment {
     TextView myCredit;
     TextView popUpTxt;
     TextView tViewMyEnergy;
+    TextView tViewPending;
 
     Button bPlus;
     Button bMinus;
-    Button bBuy;
-    Button bSell;
 
     Button agree;
     Button disagree;
 
     Button bBuyTotal;
-
     PopupWindow pw;
 
+    HomeActivity activity;
 
 
-    public ManageFragment() {
+    public SellFragment() {
         // Required empty public constructor
     }
 
 
-    public static ManageFragment newInstance() {
-        ManageFragment fragment = new ManageFragment();
+    public static SellFragment newInstance() {
+        SellFragment fragment = new SellFragment();
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        activity = (HomeActivity)getActivity();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+        ((HomeActivity) getActivity()).setActionBarTitle("Heater");
         getActivity().setRequestedOrientation(
                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        View v = inflater.inflate(R.layout.fragment_manage, container, false);
+        View v = inflater.inflate(R.layout.fragment_sell, container, false);
 
         RecyclerView recyclerView = (RecyclerView)v.findViewById(R.id.apt_recycler_stations);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -106,13 +102,19 @@ public class ManageFragment extends android.support.v4.app.Fragment {
         tViewCounter = (TextView)v.findViewById(R.id.textViewCounter);
         tViewAvailable = (TextView)v.findViewById(R.id.textViewEnergy);
         tViewMyEnergy = (TextView)v.findViewById(R.id.textViewMyEnergy);
+        tViewPending = (TextView)v.findViewById(R.id.pendings);
+        if(activity.getPending() > 0){
+            setPending();
+        }else{
+            tViewPending.setText("");
+        }
 
         myCredit = (TextView)v.findViewById(R.id.textViewCredit);
 
         setAvailable();
         setPrice();
-        setCredit(20);
-        setEnergy(20);
+        setCredit(activity.getCredit());
+        setEnergy(activity.getEnergy());
 
         bPlus = (Button)v.findViewById(R.id.buttonPlus);
         bPlus.setOnClickListener(test);
@@ -120,15 +122,12 @@ public class ManageFragment extends android.support.v4.app.Fragment {
         bMinus = (Button)v.findViewById(R.id.buttonMinus);
         bMinus.setOnClickListener(test);
 
-        bBuy = (Button)v.findViewById(R.id.buttonBuy);
-        bBuy.setOnClickListener(choice);
-
-        bSell = (Button)v.findViewById(R.id.buttonSell);
-        bSell.setOnClickListener(choice);
-
 
         bBuyTotal = (Button)v.findViewById(R.id.buttonBuyTotal);
-        bBuyTotal.setText("Buy / Sell");
+
+        bBuyTotal.setBackgroundResource(R.drawable.rectangle_orange);
+        bBuyTotal.setText("Sell");
+        bBuyTotal.setOnClickListener(sell);
 
 
         View popupView = LayoutInflater.from(getActivity()).inflate(R.layout.popup_window, null);
@@ -136,39 +135,9 @@ public class ManageFragment extends android.support.v4.app.Fragment {
         disagree = (Button)popupView.findViewById(R.id.disagree);
         popUpTxt = (TextView)popupView.findViewById(R.id.popUpText);
         pw = new PopupWindow(popupView, 300, 300, true);
-
-
         return v;
     }
 
-    View.OnClickListener buy = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            pw.showAtLocation(getView(), Gravity.CENTER, 0, 0);
-            popUpTxt.setText("Are You Sure You Want to Purchase " + getCounter() + "for " + getPrice());
-            disagree.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    pw.dismiss();
-                }
-            });
-            agree.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //add contstants
-                    setCredit(credit - getPriceInt());
-                    setEnergy(energy + counter);
-                    adapter.makePurchase(counter);
-                    adapter.notifyDataSetChanged();
-                    available = adapter.getTotalValue();
-                    setCounter(0);
-                    setAvailable();
-                    setPrice();
-                    pw.dismiss();
-                }
-            });
-        }
-    };
 
     View.OnClickListener sell = new View.OnClickListener() {
         @Override
@@ -187,9 +156,10 @@ public class ManageFragment extends android.support.v4.app.Fragment {
                     //add contstants
                     adapter.addUnit(myUnit, counter);
                     adapter.notifyDataSetChanged();
-                    available =adapter.getTotalValue();
-                    setCredit(credit + getPriceInt());
-                    setEnergy(energy - counter);
+                    available = adapter.getTotalValue();
+                    //setCredit(activity.getCredit() + getPriceInt());
+                    setPending(getPriceInt());
+                    setEnergy(activity.getEnergy() - counter);
                     setCounter(0);
                     setAvailable();
                     setPrice();
@@ -208,11 +178,11 @@ public class ManageFragment extends android.support.v4.app.Fragment {
     }
 
     public int getEnergy() {
-        return energy;
+        return activity.getEnergy();
     }
 
     public void setEnergy(int energy) {
-        this.energy = energy;
+        activity.setEnergy(energy);
         tViewMyEnergy.setText(energy + " kWh");
 
     }
@@ -227,9 +197,21 @@ public class ManageFragment extends android.support.v4.app.Fragment {
         tViewAvailable.setText(available + " kWh Available");
     }
 
+    public void setPending(double pending){
+        activity.setPending(pending);
+        String pr = String.format("%.2f", activity.getPending());
+        tViewPending.setText(pr + " €");
+
+    }
+
+    public void setPending(){
+        String pr = String.format("%.2f", activity.getPending());
+        tViewPending.setText(pr + " €");
+    }
+
     public void setCredit(double credit1){
-        credit = credit1;
-        String pr = String.format("%.2f", credit);
+        activity.setCredit(credit1);
+        String pr = String.format("%.2f", activity.getCredit());
         myCredit.setText(pr + " €");
     }
 
@@ -256,24 +238,6 @@ public class ManageFragment extends android.support.v4.app.Fragment {
 
         return pr + " €";
     }
-
-    View.OnClickListener choice = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            switch(view.getId()){
-                case R.id.buttonBuy:
-                    bBuyTotal.setBackgroundResource(R.drawable.rectangle_green);
-                    bBuyTotal.setText("Buy");
-                    bBuyTotal.setOnClickListener(buy);
-                    break;
-                case R.id.buttonSell:
-                    bBuyTotal.setBackgroundResource(R.drawable.rectangle_orange);
-                    bBuyTotal.setText("Sell");
-                    bBuyTotal.setOnClickListener(sell);
-                    break;
-            }
-        }
-    };
 
     View.OnClickListener test = new View.OnClickListener() {
         @Override

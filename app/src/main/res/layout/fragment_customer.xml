@@ -1,10 +1,9 @@
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/side_nav_bar"
+    android:background="@android:color/white"
     android:fitsSystemWindows="false">
 
 
@@ -12,7 +11,7 @@
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
         android:fitsSystemWindows="true">
 
 
@@ -35,7 +34,7 @@
                 android:paddingTop="15dp"
                 android:text="Daily Consumption kWh"
                 android:textColor="@color/colorAccent"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/chart1"
@@ -51,14 +50,14 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/rectanlge"
                 android:elevation="0dp"
-                android:paddingBottom="0dp"/>
+                android:paddingBottom="0dp" />
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -68,7 +67,7 @@
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorAccent"
+        android:layout_marginTop="10dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <include
@@ -79,7 +78,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"/>
+            android:layout_marginStart="8dp" />
 
 
     </android.support.v4.widget.NestedScrollView>

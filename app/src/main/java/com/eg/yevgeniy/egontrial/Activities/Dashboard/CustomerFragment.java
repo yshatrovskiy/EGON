@@ -109,7 +109,7 @@ public class CustomerFragment extends Fragment{
         BARDATA = new BarData(Bardataset);
         chart.getDescription().setEnabled(false);
         chart.setData(BARDATA);
-        chart.animateY(3000);
+        chart.animateY(1000);
 
         Legend l = chart.getLegend();
         //l.setEnabled(false);
@@ -136,13 +136,13 @@ public class CustomerFragment extends Fragment{
 
     public void AddValuesToBARENTRY(){
 
-        BARENTRY.add(new BarEntry(0f, 1));
-        BARENTRY.add(new BarEntry(1f, 2));
-        BARENTRY.add(new BarEntry(2f, 3));
-        BARENTRY.add(new BarEntry(3f, 4));
-        BARENTRY.add(new BarEntry(4f, 5));
-        BARENTRY.add(new BarEntry(5f, 6));
-
+        BARENTRY.add(new BarEntry(23f, 16));
+        BARENTRY.add(new BarEntry(24f, 15));
+        BARENTRY.add(new BarEntry(25f, 14));
+        BARENTRY.add(new BarEntry(26f, 15));
+        BARENTRY.add(new BarEntry(27f, 14));
+        BARENTRY.add(new BarEntry(28f, 15));
+        BARENTRY.add(new BarEntry(29f, 14));
     }
 }
 
